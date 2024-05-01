@@ -1,0 +1,71 @@
+in apollo explorer 
+query GamesQuery {
+  games{
+    title,platform
+  }
+}
+
+========
+with id
+query reviewsQuery($id:ID!) {
+  review(id: $id) {
+    rating
+  }
+}
+variable:-
+{
+  "id": "2"
+}
+
+============
+delete mutation
+
+mutation deletemutation($id:ID!){
+  deleteGame(id: $id) {
+    id,
+    platform,
+    title,
+    
+    
+  }
+}
+
+variable:-
+{
+  "id":"1"
+}
+
+=============
+add mutation
+mutation addGameMutation($game:addGameInput!){
+  addGame(game:$game) {
+    id,
+    platform,
+    title
+  }
+}
+variable:
+{
+  "game":{
+    "title":"new game",
+    "platform":"xbox"
+  }
+}
+=============
+update mutation
+mutation updateGame($id:ID!,$edits:editGameInput!) {
+  updateGame(id: $id,edits:$edits) {
+   
+    platform,
+    title
+  }
+}
+variable:
+{
+  "id": "2167",
+  "edits":{
+     "title":"new game1",
+   
+  }
+}
+=================
